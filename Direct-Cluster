@@ -1,9 +1,4 @@
-eksctl create cluster \
-  --name my-eks-cluster \
-  --region ap-south-1 \
-  --nodegroup-name my-nodegroup \
-  --nodes 1 \
-  --nodes-min 1 \
-  --nodes-max 1 \
-  --node-type t2.medium \
-  --managed
+K8S << PRODUCTION READY WHERE OUR CLUSTER WILL BE IN PRIVATE SUBNET WHEN EXPOSING TO THE INTERNET SO WE WILL USE PUBLIC SUBNET IN ALB OR INGRESS.
+
+
+eksctl create cluster   --name prod-cluster   --region ap-south-1   --vpc-public-subnets subnet-0aa6091a8007424c2,subnet-089a40b477785e33a   --vpc-private-subnets subnet-0d7fc3ad1399f3346,subnet-00e6bf663edd9fc67   --nodegroup-name private-workers   --node-private-networking   --nodes 2   --node-type t2.micro
